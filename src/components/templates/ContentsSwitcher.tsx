@@ -1,7 +1,31 @@
 import React from "react";
-import { CategoryName, Profile } from "../../types";
+import { CategoryName, Product, Profile } from "../../types";
 import { ContactForm } from "../ContactForm";
+import { ProductList } from "../ProductList";
 import { ProfileList } from "../ProfileList";
+
+const productList: Product[] = [
+  {
+    name: "塾管理システム 「SHS Web」",
+    linkName: "shs_web",
+    imgSrc: "/img/product/shs_web.png",
+  },
+  {
+    name: "レシピ共有アプリ「Gran Cook」",
+    linkName: "gran_cook",
+    imgSrc: "/img/product/gran_cook.png",
+  },
+  {
+    name: "割り勘計算ネイティブアプリ 「Presto Pay」",
+    linkName: "presto_pay",
+    imgSrc: "/img/product/presto_pay.png",
+  },
+  {
+    name: "書籍フリマネイティブアプリ 「Gran Book」",
+    linkName: "gran_book",
+    imgSrc: "/img/product/gran_book.png",
+  },
+];
 
 const profileList: Profile[] = [
   {
@@ -42,6 +66,7 @@ function switcher(contentType: CategoryName) {
     case "Profile":
       return <ProfileList profileList={profileList} />;
     case "Product":
+      return <ProductList productList={productList} />;
     default:
       break;
   }
