@@ -30,27 +30,28 @@ const productList: Product[] = [
 const profileList: Profile[] = [
   {
     name: "Kodai Hamada",
-    avator: "",
+    avator: "/img/profile/user0.png",
     introduction: "PO/Frontend engineer/Android engineer",
   },
   {
     name: "Tadashi Nishikawa",
-    avator: "",
+    avator: "/img/profile/user1.png",
     introduction: "Server side engineer/Infrastructure engineer",
   },
   {
     name: "Yuki Yamada",
-    avator: "",
-    introduction: "Frontend engineer/Machine learning engineer/Server side engineer",
+    avator: "/img/profile/user2.png",
+    introduction:
+      "Frontend engineer/Machine learning engineer/Server side engineer",
   },
   {
     name: "Kaito Nakamura",
-    avator: "",
+    avator: "/img/profile/user3.png",
     introduction: "Infrastructure engineer/Sales",
   },
   {
     name: "Atsuhide Inatomi",
-    avator: "",
+    avator: "/img/profile/user4.png",
     introduction: "Frontend engineer/Android engineer",
   },
 ];
