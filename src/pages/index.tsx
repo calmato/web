@@ -6,8 +6,10 @@ import styles from "../styles/Home.module.css";
 import { TopPageImage } from "../components/TopPageImage";
 import { Box, Container, Grid } from "@chakra-ui/layout";
 import { Text, Flex, List, ListItem } from "@chakra-ui/react";
+import { ContentsSwitcher } from "../components/templates/ContentsSwitcher";
+import { CategoryName } from "../types";
 
-const categories = ["Product", "Profile", "Contact"];
+const categories: CategoryName[] = ["Product", "Profile", "Contact"];
 
 const Home: NextPage = () => {
   const [selected, setSelected] = useState<number>(0);
@@ -33,7 +35,8 @@ const Home: NextPage = () => {
 
             <Flex>
               <Box flex="1">
-                <Text>Category: {categories[selected]}</Text>
+                <Text mb={4}>Category: {categories[selected]}</Text>
+                <ContentsSwitcher contentType={categories[selected]} />
               </Box>
 
               <Box flex="0.5" pl={4}>
