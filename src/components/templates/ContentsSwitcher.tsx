@@ -29,29 +29,29 @@ const productList: Product[] = [
 
 const profileList: Profile[] = [
   {
-    name: "濵田広大",
+    name: "Kodai Hamada",
     avator: "",
-    introduction: "フロントエンジニア/マネジメント",
+    introduction: "PO/Frontend engineer/Android engineer",
   },
   {
-    name: "西川直志",
+    name: "Tadashi Nishikawa",
     avator: "",
-    introduction: "サーバーサイドエンジニア/インフラエンジニア",
+    introduction: "Server side engineer/Infrastructure engineer",
   },
   {
-    name: "山田侑樹",
+    name: "Yuki Yamada",
     avator: "",
-    introduction: "フロントエンジニア/機械学習エンジニア",
+    introduction: "Frontend engineer/Machine learning engineer/Server side engineer",
   },
   {
-    name: "中村海斗",
+    name: "Kaito Nakamura",
     avator: "",
-    introduction: "インフラエンジニア",
+    introduction: "Infrastructure engineer/Sales",
   },
   {
-    name: "稲富惇英",
+    name: "Atsuhide Inatomi",
     avator: "",
-    introduction: "Androidエンジニア",
+    introduction: "Frontend engineer/Android engineer",
   },
 ];
 
