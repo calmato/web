@@ -7,13 +7,18 @@ import { Product } from "../../types";
 interface Props {
   boxProps?: BoxProps;
   product: Product;
+  handleClick: (linkName: string) => void;
 }
 
 export function ProductItem(props: Props) {
-  const { product } = props;
+  const { product, handleClick } = props;
 
   return (
-    <Box {...props.boxProps}>
+    <Box
+      as="button"
+      onClick={() => handleClick(product.linkName)}
+      {...props.boxProps}
+    >
       <Center mb={2}>
         <Img alt={product.name} src={product.imgSrc} />
       </Center>

@@ -1,5 +1,6 @@
 import { Box, Flex, Grid } from "@chakra-ui/layout";
-import React from "react";
+import { useRouter } from "next/dist/client/router";
+import React, { useCallback } from "react";
 import { Product } from "../types";
 import { ProductItem } from "./parts/ProductItem";
 
@@ -9,10 +10,24 @@ interface Props {
 
 export function ProductList(props: Props) {
   const { productList } = props;
+  const router = useRouter();
+
+  const handleItemClick = useCallback(
+    (linkName: string) => {
+      router.push(linkName);
+    },
+    [router]
+  );
+
   return (
     <Grid templateColumns="repeat(2, 1fr)" gap={6}>
       {productList.map((product, idx) => (
-        <ProductItem product={product} key={idx} boxProps={{ mb: 4 }} />
+        <ProductItem
+          handleClick={handleItemClick}
+          product={product}
+          key={idx}
+          boxProps={{ mb: 4 }}
+        />
       ))}
     </Grid>
   );
