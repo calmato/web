@@ -11,7 +11,7 @@ export function ContactForm() {
       <VStack>
         <FormControl id="name" isRequired>
           <FormLabel>お名前</FormLabel>
-          <Input placeholder="にしかわあんず" name="name" />
+          <Input placeholder="山田太郎" name="name" />
         </FormControl>
 
         <FormControl id="subject" isRequired>
@@ -26,7 +26,7 @@ export function ContactForm() {
 
         <FormControl id="email" isRequired>
           <FormLabel>メールアドレス</FormLabel>
-          <Input placeholder="info@calmato.com" type="email" name="email" />
+          <Input placeholder="info@calmato.jp" type="email" name="email" />
         </FormControl>
 
         <FormControl id="phone-number" isRequired>
