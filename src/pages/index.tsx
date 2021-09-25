@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -7,7 +7,15 @@ import { TopPageImage } from "../components/TopPageImage";
 import { Box, Container, Grid } from "@chakra-ui/layout";
 import { Text, Flex, List, ListItem } from "@chakra-ui/react";
 
+const categories = ["Product", "Profile", "Contact"];
+
 const Home: NextPage = () => {
+  const [selected, setSelected] = useState<number>(0);
+
+  const handleClickCategory = useCallback((idx: number) => {
+    setSelected(idx);
+  }, []);
+
   return (
     <>
       <Head>
@@ -25,15 +33,30 @@ const Home: NextPage = () => {
 
             <Flex>
               <Box flex="1">
-                <Text>Category:</Text>
+                <Text>Category: {categories[selected]}</Text>
               </Box>
 
               <Box flex="0.5" pl={4}>
-                <Text>Category</Text>
+                <Text mb={4}>Category</Text>
                 <List>
-                  <ListItem>Product</ListItem>
-                  <ListItem>Profile</ListItem>
-                  <ListItem>Contact</ListItem>
+                  {categories.map((name, idx) => (
+                    <ListItem
+                      key={idx}
+                      as="button"
+                      display="block"
+                      mb={4}
+                      onClick={() => handleClickCategory(idx)}
+                    >
+                      <Text
+                        fontSize="2xl"
+                        {...(idx === selected
+                          ? { fontWeight: "bold" }
+                          : { color: "gray" })}
+                      >
+                        {name}
+                      </Text>
+                    </ListItem>
+                  ))}
                 </List>
               </Box>
             </Flex>
