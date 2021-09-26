@@ -1,8 +1,11 @@
-import { propNames } from "@chakra-ui/styled-system";
 import { GetStaticPropsContext, NextPage, NextPageContext } from "next";
 import { useRouter } from "next/dist/client/router";
+import fs from "fs";
 import Head from "next/head";
 import React from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from 'remark-gfm'
+import { Container } from "@chakra-ui/layout";
 
 interface Props {
   contents: string;
@@ -21,7 +24,12 @@ const ProducDetailPage = function ProducDetailPage(props: Props)  {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        {contents}
+        <Container>
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}>
+              {contents}
+          </ReactMarkdown>
+        </Container>
       </main>
     </>
   );
@@ -29,10 +37,12 @@ const ProducDetailPage = function ProducDetailPage(props: Props)  {
 
 export async function getStaticProps(context: GetStaticPropsContext) {
   const fileName = `${context.params?.productName}.md`
-  const filePath =  `./markdown/${fileName}`;
+  const filePath =  `./src/markdown/${fileName}`;
+  const getFileContent = fs.readFileSync(filePath);
+
 
   return {
-    props: {contents: filePath}, // will be passed to the page component as props
+    props: {contents: getFileContent.toString()}, // will be passed to the page component as props
   };
 }
 

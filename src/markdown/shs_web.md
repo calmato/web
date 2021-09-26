@@ -1,6 +1,6 @@
 ## System Overview
-<br>
-<p>塾の運営に必要な以下機能を備えたシステム。</p>
+
+塾の運営に必要な以下機能を備えたシステム。
 
 - 授業スケジュール・シフト管理機能
 - 成績管理機能
@@ -13,6 +13,6 @@
 
 | Category       | Technology Stack                              |
 | -------------- | --------------------------------------------- |
-| Language       | Ruby (Ruby on Rails), JavaScript (jQuery) |
+| Language       | Ruby (Ruby on Rails), JavaScript (jQuery)     |
 | Middleware     | MySQL                                         |
 | Infrastructure | Kubernetes  (GCP: Google Kubernetes Engine)   |
