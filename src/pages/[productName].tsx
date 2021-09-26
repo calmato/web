@@ -1,7 +1,6 @@
-import { NextPage } from "next";
+import { NextPage, NextPageContext } from "next";
 import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
-import React from "react";
 
 const ProducDetailPage: NextPage = ({}) => {
   const router = useRouter();
@@ -18,5 +17,27 @@ const ProducDetailPage: NextPage = ({}) => {
     </>
   );
 };
+
+export async function getStaticProps(_context: NextPageContext) {
+  return {
+    props: {}, // will be passed to the page component as props
+  };
+}
+
+// This function gets called at build time
+export async function getStaticPaths() {
+  const products = ["shs_web", "gran_cook", "presto_pay", "gran_book"];
+
+  return {
+    paths: products.map((name) => {
+      return {
+        params: {
+          productName: name,
+        },
+      };
+    }),
+    fallback: false,
+  };
+}
 
 export default ProducDetailPage;

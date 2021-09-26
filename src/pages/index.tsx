@@ -1,11 +1,10 @@
 import React, { useCallback, useState } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { TopPageImage } from "../components/TopPageImage";
 import { Box, Container, Grid } from "@chakra-ui/layout";
-import { Text, Flex, List, ListItem } from "@chakra-ui/react";
+import { Text, Flex, List, ListItem, Center } from "@chakra-ui/react";
 import { ContentsSwitcher } from "../components/templates/ContentsSwitcher";
 import { CategoryName } from "../types";
 
@@ -43,19 +42,8 @@ const Home: NextPage = () => {
                 <Text mb={4}>Category</Text>
                 <List>
                   {categories.map((name, idx) => (
-                    <ListItem
-                      key={idx}
-                      as="button"
-                      display="block"
-                      mb={4}
-                      onClick={() => handleClickCategory(idx)}
-                    >
-                      <Text
-                        fontSize="2xl"
-                        {...(idx === selected
-                          ? { fontWeight: "bold" }
-                          : { color: "gray" })}
-                      >
+                    <ListItem key={idx} as="button" display="block" mb={4} onClick={() => handleClickCategory(idx)}>
+                      <Text fontSize="2xl" {...(idx === selected ? { fontWeight: "bold" } : { color: "gray" })}>
                         {name}
                       </Text>
                     </ListItem>
@@ -67,18 +55,7 @@ const Home: NextPage = () => {
         </Container>
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+      <footer className={styles.footer}>calmato</footer>
     </>
   );
 };
