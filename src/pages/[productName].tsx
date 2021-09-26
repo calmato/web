@@ -1,12 +1,17 @@
-import { NextPage } from "next";
+import { propNames } from "@chakra-ui/styled-system";
+import { GetStaticPropsContext, NextPage, NextPageContext } from "next";
 import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
 import React from "react";
-import { ContactForm } from "../components/ContactForm";
 
-const ProducDetailPage: NextPage = ({}) => {
+interface Props {
+  contents: string;
+}
+
+const ProducDetailPage = function ProducDetailPage(props: Props)  {
   const router = useRouter();
-  const { productName } = router.query as any;
+  const { productName } = router.query;
+  const contents = props.contents;
 
   return (
     <>
@@ -16,37 +21,35 @@ const ProducDetailPage: NextPage = ({}) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <ProductSwitcher productType={productName} />
+        {contents}
       </main>
     </>
   );
 };
 
-function switcher(prodoctType: string) {
-  switch(prodoctType) {
-    case "shs_web": {
-      return <ContactForm />;
-    }
-    case "gran_cook": {
-      break;
-    }
-    case "presto_pay": {
-      break;
-    }
-    case "gran_book": {
-      break;
-    }
-  }
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const fileName = `${context.params?.productName}.md`
+  const filePath =  `./markdown/${fileName}`;
+
+  return {
+    props: {contents: filePath}, // will be passed to the page component as props
+  };
 }
 
-interface Props {
-  productType: string;
-}
+// This function gets called at build time
+export async function getStaticPaths() {
+  const products = ["shs_web", "gran_cook", "presto_pay", "gran_book"];
 
-
-export function ProductSwitcher(props: Props) {
-  const { productType } = props;
-  return <>{switcher(productType)}</>;
+  return {
+    paths: products.map((name) => {
+      return {
+        params: {
+          productName: name,
+        },
+      };
+    }),
+    fallback: false,
+  };
 }
 
 export default ProducDetailPage;
