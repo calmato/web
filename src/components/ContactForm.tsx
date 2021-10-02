@@ -38,7 +38,7 @@ export function ContactForm() {
           <FormLabel>お問い合わせ内容</FormLabel>
           <Textarea name="body"></Textarea>
         </FormControl>
-        <Button type="submit">送信</Button>
+        <Button colorScheme="teal" variant="outline" size="md" type="submit">送信</Button>
       </VStack>
     </form>
   );
