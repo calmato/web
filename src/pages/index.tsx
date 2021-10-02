@@ -38,12 +38,12 @@ const Home: NextPage = () => {
                 <ContentsSwitcher contentType={categories[selected]} />
               </Box>
 
-              <Box flex="0.5" pl={4}>
+              <Box pl={4}>
                 <Text mb={4}>Category</Text>
                 <List>
                   {categories.map((name, idx) => (
                     <ListItem key={idx} as="button" display="block" mb={4} onClick={() => handleClickCategory(idx)}>
-                      <Text fontSize="2xl" {...(idx === selected ? { fontWeight: "bold" } : { color: "gray" })}>
+                      <Text fontSize={["sm", "md", "xl", "2xl"]} {...(idx === selected ? { fontWeight: "bold" } : { color: "gray" })}>
                         {name}
                       </Text>
                     </ListItem>
