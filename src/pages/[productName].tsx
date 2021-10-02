@@ -1,20 +1,26 @@
-import { GetStaticPropsContext, NextPage, NextPageContext } from "next";
+import { GetStaticPropsContext } from "next";
 import { useRouter } from "next/dist/client/router";
 import fs from "fs";
 import Head from "next/head";
 import React from "react";
 import ReactMarkdown from "react-markdown";
-import remarkGfm from 'remark-gfm'
-import { Container } from "@chakra-ui/layout";
+import remarkGfm from "remark-gfm";
+import { Box, Container, ListItem, UnorderedList } from "@chakra-ui/layout";
+import { Heading, Table, Tbody, Td, Text, Thead, Tr } from "@chakra-ui/react";
+import remarkToc from "remark-toc";
+import { extractURL, getOGPContent } from "../lib";
+import { OGPContent } from "../types/lib/ogp";
+import { OGPContentCard } from "../components/OGPContentCard";
 
 interface Props {
   contents: string;
+  linkOgpContentList: OGPContent[];
 }
 
-const ProducDetailPage = function ProducDetailPage(props: Props)  {
+const ProductDetailPage = function ProductDetailPage(props: Props) {
   const router = useRouter();
   const { productName } = router.query;
-  const contents = props.contents;
+  const { contents, linkOgpContentList } = props;
 
   return (
     <>
@@ -25,10 +31,46 @@ const ProducDetailPage = function ProducDetailPage(props: Props)  {
       </Head>
       <main>
         <Container>
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]}>
+          <Box>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm, remarkToc]}
+              components={{
+                div: ({ children }) => <Box>{children}</Box>,
+                h1: ({ children }) => <Heading as="h1">{children}</Heading>,
+                h2: ({ children }) => (
+                  <Text as="h2" fontSize="4xl" mb={4}>
+                    {children}
+                  </Text>
+                ),
+                p: ({ children }) => <Text mb={4}>{children}</Text>,
+                ul: ({ children }) => (
+                  <UnorderedList spacing={2} my={3}>
+                    {children}
+                  </UnorderedList>
+                ),
+                li: ({ children }) => <ListItem>{children}</ListItem>,
+                table: ({ children }) => (
+                  <Table variant="simple" my={2} borderRadius="lg">
+                    {children}
+                  </Table>
+                ),
+                thead: ({ children }) => <Thead backgroundColor="gray.100">{children}</Thead>,
+                tr: ({ children }) => <Tr>{children}</Tr>,
+                td: ({ children }) => <Td>{children}</Td>,
+                tbody: ({ children }) => <Tbody>{children}</Tbody>,
+                a: ({ children, href }) => {
+                  const ogpContent = linkOgpContentList.find((item) => item.id === href);
+                  return ogpContent ? (
+                    <OGPContentCard href={href} ogpContent={ogpContent} />
+                  ) : (
+                    <a href={href}>{children}</a>
+                  );
+                },
+              }}
+            >
               {contents}
-          </ReactMarkdown>
+            </ReactMarkdown>
+          </Box>
         </Container>
       </main>
     </>
@@ -36,13 +78,19 @@ const ProducDetailPage = function ProducDetailPage(props: Props)  {
 };
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const fileName = `${context.params?.productName}.md`
-  const filePath =  `./src/markdown/${fileName}`;
+  const fileName = `${context.params?.productName}.md`;
+  const filePath = `./src/markdown/${fileName}`;
   const getFileContent = fs.readFileSync(filePath);
 
+  const linkOgpContentList: OGPContent[] = [];
+
+  for (const link of extractURL(getFileContent.toString())) {
+    const res = await getOGPContent(link);
+    res.result && res.content && linkOgpContentList.push(res.content);
+  }
 
   return {
-    props: {contents: getFileContent.toString()}, // will be passed to the page component as props
+    props: { contents: getFileContent.toString(), linkOgpContentList }, // will be passed to the page component as props
   };
 }
 
@@ -62,4 +110,4 @@ export async function getStaticPaths() {
   };
 }
 
-export default ProducDetailPage;
+export default ProductDetailPage;
