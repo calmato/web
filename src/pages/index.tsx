@@ -26,7 +26,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <TopPageImage src="img/image.png" />
+        <TopPageImage src="img/asset1.jpg" />
 
         <Container maxW="container.lg">
           <Box p={8}>
