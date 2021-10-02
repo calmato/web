@@ -30,7 +30,7 @@ const productList: Product[] = [
 const profileList: Profile[] = [
   {
     name: "Kodai Hamada",
-    avator: "/img/profile/user0.png",
+    avator: "/img/profile/user0.jpg",
     introduction: "PO/Frontend engineer/Android engineer",
   },
   {
@@ -54,6 +54,11 @@ const profileList: Profile[] = [
     avator: "/img/profile/user4.png",
     introduction: "Frontend engineer/Android engineer",
   },
+  {
+    name: "Hazuki Nishiguchi",
+    avator: "/img/profile/user5.jpg",
+    introduction: "Designer"
+  }
 ];
 
 interface Props {
