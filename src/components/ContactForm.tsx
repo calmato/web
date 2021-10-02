@@ -2,10 +2,17 @@ import { Button } from "@chakra-ui/button";
 import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import { Input } from "@chakra-ui/input";
 import { VStack } from "@chakra-ui/layout";
-import { Textarea } from "@chakra-ui/react";
+import { Textarea, useToast } from "@chakra-ui/react";
 import React from "react";
 
 export function ContactForm() {
+  const toast = useToast()
+  const toastIdRef: any = React.useRef()
+  function addToast() {
+    // validation check
+    toastIdRef.current = toast({ title: "送信しました", status: "success", isClosable: true })
+  }
+
   return (
     <form>
       <VStack>
@@ -38,7 +45,8 @@ export function ContactForm() {
           <FormLabel>お問い合わせ内容</FormLabel>
           <Textarea name="body"></Textarea>
         </FormControl>
-        <Button type="submit">送信</Button>
+        <Button colorScheme="teal" variant="outline" size="md" type="submit"
+          onClick={() =>addToast()}>送信</Button>
       </VStack>
     </form>
   );
