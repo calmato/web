@@ -11,9 +11,9 @@ export function TopPageImage(props: Props) {
   return (
     <Box position="relative" w="100%">
       <Img src={props.src} alt="calmato top page image" objectFit="contain" w="100%" />
-      <Box position="relative" bottom={["12", "18", "24", "36"]} left="12" display="flex" alignItems="center">
+      <Box position="absolute" bottom={["12px", "24px", "48px", "60px"]} left="24px" display="flex" alignItems="center">
         <Img src="img/calmato.png" boxSize="36px" display="block" />
-        <Text fontSize={["2xl", "2xl", "2xl", "4xl"]} ml="2" color="white" fontWeight="bold" >
+        <Text fontSize={["2xl", "2xl", "3xl", "4xl"]} ml="2" color="white" fontWeight="bold" >
           Calmato
         </Text>
       </Box>
