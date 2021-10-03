@@ -7,8 +7,9 @@ const errSendgrid = 'sendgrid error'
 const errUnknown = 'unknown error'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  // 問い合わせ用のメール送信しか実装しないため、POST送信以外はエラーで返す
-  if (req.method !== 'POST') {
+  // POST使いたいけど、CloudFrontでエラー変えるのでPUTで...
+  // 問い合わせ用のメール送信しか実装しないため、PUT送信以外はエラーで返す
+  if (req.method !== 'PUT') {
     const err = new Error('api: unimplemented')
     res.status(501).send(err)
     return

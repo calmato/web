@@ -26,7 +26,7 @@ export function ContactForm() {
 
   async function submit() {
     await fetch('/api/sendgrid/send', {
-      method: 'POST',
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
