@@ -1,4 +1,4 @@
-export interface SendEmailRequest {
+export interface ContactRequest {
   name: string; // 氏名
   companyName: string; // 会社名
   email: string; // メールアドレス

@@ -3,14 +3,12 @@ import { FormControl, FormLabel } from "@chakra-ui/form-control";
 import { Input } from "@chakra-ui/input";
 import { VStack } from "@chakra-ui/layout";
 import { Textarea, useToast, UseToastOptions } from "@chakra-ui/react";
-import React, { useState } from "react";
-import { SendEmailRequest } from "../types/api";
+import React, { useCallback, useState } from "react";
+import { ContactRequest } from "../types";
 
 export function ContactForm() {
   const toast = useToast()
-  const toastIdRef: any = React.useRef()
-  // form用に新しい型定義作ってもいいかなと思ったけど、いったん types/api のもので定義
-  const [formData, setFormData] = useState<SendEmailRequest>({
+  const [formData, setFormData] = useState<ContactRequest>({
     name: '',
     companyName: '',
     email: '',
@@ -20,27 +18,37 @@ export function ContactForm() {
   })
 
   function addToast(status: UseToastOptions['status'], title: string) {
-    // validation check
-    toastIdRef.current = toast({ title, status, isClosable: true })
+    return toast({ title, status, isClosable: true })
   }
 
-  async function submit() {
-    await fetch('/api/sendgrid/send', {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        ...formData,
-      }),
-    })
-      .then(() => {
+  async function submit(): Promise<void> {
+    const apiUrl: string = process.env.CONTACT_API_URL || ''
+    const method: string = 'POST'
+    const headers: HeadersInit = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    }
+
+    await fetch(apiUrl, { method, headers, body: JSON.stringify(formData) })
+      .then((res: Response) => {
+        console.log({ status: res.status, body: res.body })
         addToast('success', '送信しました')
       })
-      .catch(() => {
+      .catch((err: Error) => {
+        console.log({ err })
         addToast('error', '送信に失敗しました')
       })
   }
+
+  const onChangeHandler = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>): void => {
+      setFormData((current: ContactRequest) => ({
+        ...current,
+        [e.target.name]: e.target.value,
+      }))
+    },
+    []
+  )
 
   return (
     <form>
@@ -51,7 +59,7 @@ export function ContactForm() {
             name="name"
             placeholder="山田太郎"
             value={formData.name}
-            onChange={(e) => { setFormData({ ...formData, name: e.target.value })}}
+            onChange={onChangeHandler}
           />
         </FormControl>
 
@@ -61,7 +69,7 @@ export function ContactForm() {
             name="companyName"
             placeholder="Calmato"
             value={formData.companyName}
-            onChange={(e) => { setFormData({ ...formData, companyName: e.target.value })}}
+            onChange={onChangeHandler}
           />
         </FormControl>
 
@@ -72,7 +80,7 @@ export function ContactForm() {
             name="email"
             placeholder="info@calmato.jp"
             value={formData.email}
-            onChange={(e) => { setFormData({ ...formData, email: e.target.value })}}
+            onChange={onChangeHandler}
           />
         </FormControl>
 
@@ -83,7 +91,7 @@ export function ContactForm() {
             name="phoneNumber"
             placeholder="08011112222"
             value={formData.phoneNumber}
-            onChange={(e) => { setFormData({ ...formData, phoneNumber: e.target.value })}}
+            onChange={onChangeHandler}
           />
         </FormControl>
 
@@ -93,7 +101,7 @@ export function ContactForm() {
             name="subject"
             placeholder="〇〇について"
             value={formData.subject}
-            onChange={(e) => { setFormData({ ...formData, subject: e.target.value })}}
+            onChange={onChangeHandler}
           />
         </FormControl>
 
@@ -102,9 +110,10 @@ export function ContactForm() {
           <Textarea
             name="content"
             value={formData.content}
-            onChange={(e) => { setFormData({ ...formData, content: e.target.value })}}
+            onChange={onChangeHandler}
           />
         </FormControl>
+
         <Button colorScheme="teal" variant="outline" size="md" onClick={() =>submit()}>送信</Button>
       </VStack>
     </form>
