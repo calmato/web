@@ -2,6 +2,6 @@
 module.exports = {
   reactStrictMode: true,
   env: {
-    CONTACT_API_URL: process.env.CONTACT_API_URL,
+    NEXT_PUBLIC_CONTACT_API: process.env.NEXT_PUBLIC_CONTACT_API,
   },
 }

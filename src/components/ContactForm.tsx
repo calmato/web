@@ -22,7 +22,7 @@ export function ContactForm() {
   }
 
   async function submit(): Promise<void> {
-    const apiUrl: string = process.env.CONTACT_API_URL || ''
+    const apiUrl: string = process.env.NEXT_PUBLIC_CONTACT_API || ''
     const method: string = 'POST'
     const headers: HeadersInit = {
       'Content-Type': 'application/json',
