@@ -51,7 +51,7 @@ export function ContactForm() {
   )
 
   return (
-    <form>
+    <form onSubmit={() => submit()}>
       <VStack>
         <FormControl id="name" isRequired>
           <FormLabel>お名前</FormLabel>
@@ -114,7 +114,7 @@ export function ContactForm() {
           />
         </FormControl>
 
-        <Button colorScheme="teal" variant="outline" size="md" onClick={() =>submit()}>送信</Button>
+        <Button type="submit" colorScheme="teal" variant="outline" size="md">送信</Button>
       </VStack>
     </form>
   );
