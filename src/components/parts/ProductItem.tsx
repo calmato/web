@@ -22,7 +22,7 @@ export function ProductItem(props: Props) {
       <Center mb={2}>
         <Img alt={product.name} src={product.imgSrc} />
       </Center>
-      <Text whiteSpace="nowrap">{product.name}</Text>
+      <Text whiteSpace="nowrap"><u>{product.name}</u></Text>
     </Box>
   );
 }
