@@ -3,10 +3,12 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import { TopPageImage } from "../components/TopPageImage";
-import { Box, Container, Grid } from "@chakra-ui/layout";
-import { Text, Flex, List, ListItem, Center } from "@chakra-ui/react";
+import { Box, Container } from "@chakra-ui/layout";
+import { Text, Flex } from "@chakra-ui/react";
 import { ContentsSwitcher } from "../components/templates/ContentsSwitcher";
 import { CategoryName } from "../types";
+import { Navigation } from "../components/Navigation";
+import { DrawerMenu } from "../components/DrawerMenu";
 
 const categories: CategoryName[] = ["Product", "Profile", "Contact"];
 
@@ -29,26 +31,25 @@ const Home: NextPage = () => {
         <TopPageImage src="img/asset1.jpg" />
 
         <Container maxW="container.lg">
-          <Box p={8}>
-            <Text fontSize="4xl">About</Text>
-
+          <Flex pt={8} px={8} justifyContent="space-between" alignItems="center">
+            <Box>
+              <Text fontSize="4xl">About</Text>
+              <Text mb={4}>Category: {categories[selected]}</Text>
+            </Box>
+            <Box display={{ base: "block", md: "none" }}>
+              <DrawerMenu>
+                <Navigation categories={categories} activeIdx={selected} handleClickCategory={handleClickCategory} />
+              </DrawerMenu>
+            </Box>
+          </Flex>
+          <Box p={4}>
             <Flex>
               <Box flex="1">
-                <Text mb={4}>Category: {categories[selected]}</Text>
                 <ContentsSwitcher contentType={categories[selected]} />
               </Box>
 
-              <Box pl={4}>
-                <Text mb={4}>Category</Text>
-                <List>
-                  {categories.map((name, idx) => (
-                    <ListItem key={idx} as="button" display="block" mb={4} onClick={() => handleClickCategory(idx)}>
-                      <Text fontSize={["sm", "md", "xl", "2xl"]} {...(idx === selected ? { fontWeight: "bold" } : { color: "gray" })}>
-                        {name}
-                      </Text>
-                    </ListItem>
-                  ))}
-                </List>
+              <Box pl={2} display={{ base: "none", md: "block" }}>
+                <Navigation categories={categories} activeIdx={selected} handleClickCategory={handleClickCategory} />
               </Box>
             </Flex>
           </Box>
