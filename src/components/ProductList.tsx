@@ -20,14 +20,9 @@ export function ProductList(props: Props) {
   );
 
   return (
-    <Grid templateColumns="repeat(2, 1fr)" gap={6}>
+    <Grid templateColumns="repeat(2, minmax(50%, 1fr))" gap={0}>
       {productList.map((product, idx) => (
-        <ProductItem
-          handleClick={handleItemClick}
-          product={product}
-          key={idx}
-          boxProps={{ mb: 4 }}
-        />
+        <ProductItem handleClick={handleItemClick} product={product} key={idx} boxProps={{ mb: 4 }} />
       ))}
     </Grid>
   );

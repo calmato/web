@@ -1,5 +1,5 @@
 import { Img } from "@chakra-ui/image";
-import { Box, BoxProps, Center } from "@chakra-ui/layout";
+import { BoxProps, Center, GridItem } from "@chakra-ui/layout";
 import { Text } from "@chakra-ui/react";
 import React from "react";
 import { Product } from "../../types";
@@ -14,15 +14,11 @@ export function ProductItem(props: Props) {
   const { product, handleClick } = props;
 
   return (
-    <Box
-      as="button"
-      onClick={() => handleClick(product.linkName)}
-      {...props.boxProps}
-    >
+    <GridItem as="button" onClick={() => handleClick(product.linkName)} {...props.boxProps}>
       <Center mb={2}>
         <Img alt={product.name} src={product.imgSrc} />
       </Center>
-      <Text whiteSpace="nowrap"><u>{product.name}</u></Text>
-    </Box>
+      <Text>{product.name}</Text>
+    </GridItem>
   );
 }
