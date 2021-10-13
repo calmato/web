@@ -7,18 +7,18 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerOverlay,
-  useDisclosure,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 
 interface Props {
+  isOpen: boolean;
+  onOpen: () => void;
+  onClose: () => void;
   children: React.ReactNode;
 }
 
 export function DrawerMenu(props: Props) {
-  const { children } = props;
-
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen, onClose, children } = props;
 
   return (
     <>
@@ -29,7 +29,7 @@ export function DrawerMenu(props: Props) {
         <DrawerOverlay>
           <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader>Menu</DrawerHeader>
+            <DrawerHeader>Category</DrawerHeader>
             <DrawerBody>{children}</DrawerBody>
           </DrawerContent>
         </DrawerOverlay>

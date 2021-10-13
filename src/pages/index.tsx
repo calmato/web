@@ -4,7 +4,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import { TopPageImage } from "../components/TopPageImage";
 import { Box, Container } from "@chakra-ui/layout";
-import { Text, Flex } from "@chakra-ui/react";
+import { Text, Flex, useDisclosure } from "@chakra-ui/react";
 import { ContentsSwitcher } from "../components/templates/ContentsSwitcher";
 import { CategoryName } from "../types";
 import { Navigation } from "../components/Navigation";
@@ -15,8 +15,11 @@ const categories: CategoryName[] = ["Product", "Profile", "Contact"];
 const Home: NextPage = () => {
   const [selected, setSelected] = useState<number>(0);
 
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   const handleClickCategory = useCallback((idx: number) => {
     setSelected(idx);
+    onClose();
   }, []);
 
   return (
@@ -37,7 +40,7 @@ const Home: NextPage = () => {
               <Text mb={4}>Category: {categories[selected]}</Text>
             </Box>
             <Box display={{ base: "block", md: "none" }}>
-              <DrawerMenu>
+              <DrawerMenu isOpen={isOpen} onOpen={onOpen} onClose={onClose}>
                 <Navigation categories={categories} activeIdx={selected} handleClickCategory={handleClickCategory} />
               </DrawerMenu>
             </Box>
@@ -49,6 +52,7 @@ const Home: NextPage = () => {
               </Box>
 
               <Box pl={2} display={{ base: "none", md: "block" }}>
+                <Text mb={4}>Category</Text>
                 <Navigation categories={categories} activeIdx={selected} handleClickCategory={handleClickCategory} />
               </Box>
             </Flex>

@@ -13,7 +13,6 @@ export function Navigation(props: Props) {
 
   return (
     <>
-      <Text mb={4}>Category</Text>
       <List>
         {categories.map((name, idx) => (
           <ListItem key={idx} as="button" display="block" mb={4} onClick={() => handleClickCategory(idx)}>
