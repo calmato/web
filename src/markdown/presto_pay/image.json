@@ -1,7 +1,11 @@
-[ {
-  "url": "img/asset0.jpg"
+[{
+  "url": "img/product/presto_pay/1.png"
 }, {
-  "url": "img/asset1.jpg"
+  "url": "img/product/presto_pay/2.png"
 }, {
-  "url": "img/product/presto_pay.png"
-} ]
+  "url": "img/product/presto_pay/3.png"
+}, {
+  "url": "img/product/presto_pay/4.png"
+}, {
+  "url": "img/product/presto_pay/5.png"
+}]

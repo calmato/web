@@ -8,22 +8,22 @@ const productList: Product[] = [
   {
     name: "塾管理システム 「SHS Web」",
     linkName: "shs_web",
-    imgSrc: "/img/product/shs_web.png",
+    imgSrc: "/img/product/shs_web/1.png",
   },
   {
     name: "レシピ共有アプリ「Gran Cook」",
     linkName: "gran_cook",
-    imgSrc: "/img/product/gran_cook.png",
+    imgSrc: "/img/product/gran_cook/1.png",
   },
   {
     name: "割り勘計算ネイティブアプリ 「Presto Pay」",
     linkName: "presto_pay",
-    imgSrc: "/img/product/presto_pay.png",
+    imgSrc: "/img/product/presto_pay/4.png",
   },
   {
     name: "書籍フリマネイティブアプリ 「Gran Book」",
     linkName: "gran_book",
-    imgSrc: "/img/product/gran_book.png",
+    imgSrc: "/img/product/gran_book/1.png",
   },
 ];
 
