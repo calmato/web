@@ -16,19 +16,13 @@ import { ImageSlider } from "../components/ImagesSlider";
 interface Props {
   contents: string;
   linkOgpContentList: OGPContent[];
+  images: {url: string}[];
 }
 
 const ProductDetailPage = function ProductDetailPage(props: Props) {
   const router = useRouter();
   const { productName } = router.query;
-  const { contents, linkOgpContentList } = props;
-  const images = [
-      { url: 'img/asset0.jpg' },
-      { url: 'img/asset1.jpg' },
-      { url: 'img/product/shs_web.png' },
-      { url: 'img/product/presto_pay.png' },
-      { url: 'img/image.png' },
-  ];
+  const { contents, linkOgpContentList, images } = props;
   return (
     <>
       <Head>
@@ -92,7 +86,9 @@ const ProductDetailPage = function ProductDetailPage(props: Props) {
 export async function getStaticProps(context: GetStaticPropsContext) {
   const fileName = `${context.params?.productName}.md`;
   const filePath = `./src/markdown/${fileName}`;
+  const imagePath = `./src/markdown/${context.params?.productName}/image.json`;
   const getFileContent = fs.readFileSync(filePath);
+  const images = JSON.parse(fs.readFileSync(imagePath).toString());
 
   const linkOgpContentList: OGPContent[] = [];
 
@@ -102,7 +98,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   }
 
   return {
-    props: { contents: getFileContent.toString(), linkOgpContentList }, // will be passed to the page component as props
+    props: { contents: getFileContent.toString(), linkOgpContentList, images }, // will be passed to the page component as props
   };
 }
 

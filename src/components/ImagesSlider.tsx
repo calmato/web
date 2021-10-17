@@ -16,7 +16,9 @@ export function ImageSlider(props: Props) {
     const root =  Array.from(ref.current?.children || [])[0];
     (root as HTMLDivElement).style.position = 'relative';
     const child =  Array.from(root?.children[0].children[0].children || [])[0];
-    (child as HTMLDivElement).style.opacity= '0';
+    (child as HTMLDivElement).style.backgroundPosition = 'center';
+    (child as HTMLDivElement).style.backgroundSize= 'contain';
+    (child as HTMLDivElement).style.backgroundRepeat= 'no-repeat';
     const imageChild =  Array.from(root?.children[0].children[0].children || [])[1];
     (imageChild as HTMLDivElement).style.backgroundPosition = 'center';
     (imageChild as HTMLDivElement).style.backgroundSize= 'contain';
