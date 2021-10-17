@@ -19,10 +19,12 @@ export function ImageSlider(props: Props) {
     (child as HTMLDivElement).style.backgroundPosition = 'center';
     (child as HTMLDivElement).style.backgroundSize= 'contain';
     (child as HTMLDivElement).style.backgroundRepeat= 'no-repeat';
+    (child as HTMLDivElement).style.backgroundColor= '#F2F2F2';
     const imageChild =  Array.from(root?.children[0].children[0].children || [])[1];
     (imageChild as HTMLDivElement).style.backgroundPosition = 'center';
     (imageChild as HTMLDivElement).style.backgroundSize= 'contain';
     (imageChild as HTMLDivElement).style.backgroundRepeat= 'no-repeat';
+    (imageChild as HTMLDivElement).style.backgroundColor= '#F2F2F2';
   }, [])
 
   return (
