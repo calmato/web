@@ -60,7 +60,7 @@ const Home: NextPage = () => {
         </Container>
       </main>
 
-      <footer className={styles.footer}>calmato</footer>
+      <footer className={styles.footer}>© Calmato. All rights reserved.</footer>
     </>
   );
 };

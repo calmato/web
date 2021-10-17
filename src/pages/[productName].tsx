@@ -2,6 +2,7 @@ import { GetStaticPropsContext } from "next";
 import { useRouter } from "next/dist/client/router";
 import fs from "fs";
 import Head from "next/head";
+import styles from "../styles/Home.module.css";
 import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -83,6 +84,8 @@ const ProductDetailPage = function ProductDetailPage(props: Props) {
           </Box>
         </Container>
       </main>
+
+      <footer className={styles.footer}>© Calmato. All rights reserved.</footer>
     </>
   );
 };
