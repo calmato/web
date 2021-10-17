@@ -36,13 +36,13 @@ const profileList: Profile[] = [
   {
     name: "Tadashi Nishikawa",
     avator: "/img/profile/user1.png",
-    introduction: "Server side engineer/Infrastructure engineer",
+    introduction: "Backend engineer/Infrastructure engineer",
   },
   {
     name: "Yuki Yamada",
     avator: "/img/profile/user2.png",
     introduction:
-      "Frontend engineer/Machine learning engineer/Server side engineer",
+      "Frontend engineer/Machine learning engineer/Backend engineerr",
   },
   {
     name: "Kaito Nakamura",

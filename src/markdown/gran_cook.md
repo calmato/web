@@ -8,8 +8,8 @@
 
 | Category       | Technology Stack                              |
 | -------------- | --------------------------------------------- |
-| Language       | TypeScript,JavaScript(Vue.js, Nuxt.js)  |
-| Middleware     | irestore (NoSQL)                              |
+| Language       | TypeScript, JavaScript(Vue.js, Nuxt.js)  |
+| Middleware     | Firestore (NoSQL)                              |
 | Infrastructure | Kubernetes  (GCP: Google Kubernetes Engine)  |
 
 ## URL etc.
