@@ -16,12 +16,12 @@ const productList: Product[] = [
     imgSrc: "/img/product/gran_cook/1.png",
   },
   {
-    name: "割り勘計算ネイティブアプリ 「Presto Pay」",
+    name: "割り勘計算アプリ 「Presto Pay」",
     linkName: "presto_pay",
     imgSrc: "/img/product/presto_pay/4.png",
   },
   {
-    name: "書籍フリマネイティブアプリ 「Gran Book」",
+    name: "書籍フリマアプリ 「Gran Book」",
     linkName: "gran_book",
     imgSrc: "/img/product/gran_book/1.png",
   },
