@@ -16,13 +16,14 @@ import { ImageSlider } from "../components/ImagesSlider";
 interface Props {
   contents: string;
   linkOgpContentList: OGPContent[];
+  title: string;
   images: {url: string}[];
 }
 
 const ProductDetailPage = function ProductDetailPage(props: Props) {
   const router = useRouter();
   const { productName } = router.query;
-  const { contents, linkOgpContentList, images } = props;
+  const { contents, linkOgpContentList, images, title } = props;
   return (
     <>
       <Head>
@@ -32,6 +33,7 @@ const ProductDetailPage = function ProductDetailPage(props: Props) {
       </Head>
       <main>
         <Container>
+          <Heading size="lg" textAlign='center' my={4}> {title} </Heading>
             <ImageSlider
               width='100%'
               height='400px'
@@ -56,9 +58,11 @@ const ProductDetailPage = function ProductDetailPage(props: Props) {
                 ),
                 li: ({ children }) => <ListItem>{children}</ListItem>,
                 table: ({ children }) => (
-                  <Table variant="simple" my={2} borderRadius="lg">
-                    {children}
-                  </Table>
+                  <Box overflowX="auto">
+                    <Table variant="simple" my={2} borderRadius="lg">
+                      {children}
+                    </Table>
+                  </Box>
                 ),
                 thead: ({ children }) => <Thead backgroundColor="gray.100">{children}</Thead>,
                 tr: ({ children }) => <Tr>{children}</Tr>,
@@ -87,8 +91,10 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   const fileName = `${context.params?.productName}.md`;
   const filePath = `./src/markdown/${fileName}`;
   const imagePath = `./src/markdown/${context.params?.productName}/image.json`;
+  const titlePath = `./src/markdown/${context.params?.productName}/title.json`;
   const getFileContent = fs.readFileSync(filePath);
   const images = JSON.parse(fs.readFileSync(imagePath).toString());
+  const { title } = JSON.parse(fs.readFileSync(titlePath).toString());
 
   const linkOgpContentList: OGPContent[] = [];
 
@@ -98,7 +104,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   }
 
   return {
-    props: { contents: getFileContent.toString(), linkOgpContentList, images }, // will be passed to the page component as props
+    props: { contents: getFileContent.toString(), linkOgpContentList, images, title }, // will be passed to the page component as props
   };
 }
 
