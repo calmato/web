@@ -26,7 +26,9 @@ export function ProductItem(props: Props) {
         paddingBottom="80%"
         marginLeft="10%"
       />
-      <Text textAlign="center">{product.name}</Text>
+      <u>
+        <Text textAlign="center">{product.name}</Text>
+      </u>
     </GridItem>
   );
 }
