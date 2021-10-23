@@ -42,7 +42,7 @@ const profileList: Profile[] = [
     name: "Yuki Yamada",
     avator: "/img/profile/user2.png",
     introduction:
-      "Frontend engineer/Machine learning engineer/Backend engineerr",
+      "Frontend engineer/Machine learning engineer/Backend engineer",
   },
   {
     name: "Kaito Nakamura",
