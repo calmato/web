@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## About
 
-CalmatoのHP  
+CalmatoのHP ( https://www.calmato.jp/ )  
 お問い合わせは、mail/slack/lineに送信されるようになっています
 
 ## Getting Started
