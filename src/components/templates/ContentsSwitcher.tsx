@@ -11,6 +11,11 @@ const productList: Product[] = [
     imgSrc: "/img/product/shs_web/1.png",
   },
   {
+    name: "農園向けECサイト 「大崎上島農園」",
+    linkName: "kamijima_farm",
+    imgSrc: "/img/product/kamijima_farm/1.png",
+  },
+  {
     name: "レシピ共有アプリ「Gran Cook」",
     linkName: "gran_cook",
     imgSrc: "/img/product/gran_cook/1.png",
@@ -31,12 +36,17 @@ const profileList: Profile[] = [
   {
     name: "Kodai Hamada",
     avator: "/img/profile/user0.jpg",
-    introduction: "PO/Frontend engineer/Android engineer",
+    introduction: "CEO/Frontend engineer/Android engineer",
   },
   {
     name: "Tadashi Nishikawa",
     avator: "/img/profile/user1.png",
-    introduction: "Backend engineer/Infrastructure engineer",
+    introduction: "CTO/Backend engineer/Infrastructure engineer",
+  },
+  {
+    name: "Daisuke Serikawa",
+    avator: "/img/profile/serikawa.jpg",
+    introduction: "CMO/Sales",
   },
   {
     name: "Yuki Yamada",
@@ -47,7 +57,7 @@ const profileList: Profile[] = [
   {
     name: "Kaito Nakamura",
     avator: "/img/profile/user3.png",
-    introduction: "Infrastructure engineer/Sales",
+    introduction: "Infrastructure engineer",
   },
   {
     name: "Atsuhide Inatomi",
