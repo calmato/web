@@ -11,7 +11,7 @@ const productList: Product[] = [
     imgSrc: "/img/product/shs_web/1.png",
   },
   {
-    name: "農園向けECサイト 「大崎上島農園」",
+    name: "農園向けECサイト 「瀬戸内大崎上島農園」",
     linkName: "kamijima_farm",
     imgSrc: "/img/product/kamijima_farm/1.png",
   },
