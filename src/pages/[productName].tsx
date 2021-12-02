@@ -113,7 +113,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
 
 // This function gets called at build time
 export async function getStaticPaths() {
-  const products = ["shs_web", "gran_cook", "presto_pay", "gran_book"];
+  const products = ["shs_web", "kamijima_farm", "gran_cook", "presto_pay", "gran_book"];
 
   return {
     paths: products.map((name) => {
