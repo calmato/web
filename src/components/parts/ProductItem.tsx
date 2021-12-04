@@ -9,6 +9,11 @@ interface Props {
   handleClick: (linkName: string) => void;
 }
 
+const styles = {
+  paddingTop: "8px",
+  paddingBottom: "8px",
+}
+
 export function ProductItem(props: Props) {
   const { product, handleClick } = props;
 
@@ -26,7 +31,7 @@ export function ProductItem(props: Props) {
         paddingBottom="80%"
         marginLeft="10%"
       />
-      <u>
+      <u styles={styles}>
         <Text textAlign="center">{product.name}</Text>
       </u>
     </GridItem>
