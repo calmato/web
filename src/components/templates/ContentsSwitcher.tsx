@@ -11,11 +11,6 @@ const productList: Product[] = [
     imgSrc: "/img/product/shs_web/1.png",
   },
   {
-    name: "農園向けECサイト 「瀬戸内大崎上島農園」",
-    linkName: "kamijima_farm",
-    imgSrc: "/img/product/kamijima_farm/1.png",
-  },
-  {
     name: "レシピ共有アプリ「Gran Cook」",
     linkName: "gran_cook",
     imgSrc: "/img/product/gran_cook/1.png",
@@ -29,6 +24,11 @@ const productList: Product[] = [
     name: "書籍フリマアプリ 「Gran Book」",
     linkName: "gran_book",
     imgSrc: "/img/product/gran_book/1.png",
+  },
+  {
+    name: "農園向けECサイト 「瀬戸内大崎上島農園」",
+    linkName: "kamijima_farm",
+    imgSrc: "/img/product/kamijima_farm/1.png",
   },
 ];
 
