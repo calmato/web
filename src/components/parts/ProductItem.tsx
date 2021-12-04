@@ -31,7 +31,7 @@ export function ProductItem(props: Props) {
         paddingBottom="80%"
         marginLeft="10%"
       />
-      <u styles={styles}>
+      <u style={styles}>
         <Text textAlign="center">{product.name}</Text>
       </u>
     </GridItem>
