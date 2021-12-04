@@ -13,7 +13,7 @@ export function ProductItem(props: Props) {
   const { product, handleClick } = props;
 
   return (
-    <GridItem as="button" onClick={() => handleClick(product.linkName)} {...props.boxProps}>
+    <GridItem as="button" py="16px" onClick={() => handleClick(product.linkName)} {...props.boxProps}>
       <Box
         textAlign="center"
         borderRadius="xl"
@@ -23,14 +23,14 @@ export function ProductItem(props: Props) {
         backgroundPosition="center"
         backgroundColor="gray.50"
         boxSize="80%"
-        paddingBottom="80%"
+        paddingBottom="100%"
         marginLeft="10%"
       />
       <Text
         textAlign="center"
         textDecoration="underline"
-        marginTop="4px"
-        marginBottom="8px"
+        paddingTop="4px"
+        paddingBottom="8px"
       >
         {product.name}
       </Text>
