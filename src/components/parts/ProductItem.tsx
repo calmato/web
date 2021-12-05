@@ -13,7 +13,7 @@ export function ProductItem(props: Props) {
   const { product, handleClick } = props;
 
   return (
-    <GridItem as="button" py="8px" height="100%" onClick={() => handleClick(product.linkName)} {...props.boxProps}>
+    <GridItem as="button" py="8px" onClick={() => handleClick(product.linkName)} {...props.boxProps}>
       <Box
         textAlign="center"
         borderRadius="xl"
@@ -29,7 +29,7 @@ export function ProductItem(props: Props) {
       <Text
         textAlign="center"
         textDecoration="underline"
-        height="100%"
+        height="auto"
       >
         {product.name}
       </Text>
