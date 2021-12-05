@@ -13,7 +13,12 @@ export function ProductItem(props: Props) {
   const { product, handleClick } = props;
 
   return (
-    <GridItem as="button" py="8px" onClick={() => handleClick(product.linkName)} {...props.boxProps}>
+    <GridItem
+      as="button"
+      height="100%"
+      py="8px"
+      onClick={() => handleClick(product.linkName)} {...props.boxProps}
+    >
       <Flex flexDirection="column">
         <Box
           textAlign="center"
@@ -23,7 +28,8 @@ export function ProductItem(props: Props) {
           backgroundRepeat="no-repeat"
           backgroundPosition="center"
           backgroundColor="gray.50"
-          boxSize="80%"
+          height="15vh"
+          width="80%"
           paddingBottom="80%"
           mx="10%"
         />
