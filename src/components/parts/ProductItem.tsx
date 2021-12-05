@@ -29,8 +29,7 @@ export function ProductItem(props: Props) {
       <Text
         textAlign="center"
         textDecoration="underline"
-        paddingTop="4px"
-        paddingBottom="8px"
+        height="auto"
       >
         {product.name}
       </Text>
