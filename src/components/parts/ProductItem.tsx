@@ -23,7 +23,6 @@ export function ProductItem(props: Props) {
         backgroundPosition="center"
         backgroundColor="gray.50"
         boxSize="80%"
-        paddingBottom="100%"
         marginLeft="10%"
       />
       <Text
