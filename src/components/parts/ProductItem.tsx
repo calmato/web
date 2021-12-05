@@ -24,7 +24,7 @@ export function ProductItem(props: Props) {
         backgroundColor="gray.50"
         boxSize="70%"
         paddingBottom="100%"
-        marginLeft="10%"
+        mx="15%"
       />
       <Text
         textAlign="center"
