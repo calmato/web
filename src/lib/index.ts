@@ -6,6 +6,12 @@ export function extractURL(text: string): string[] {
   return result ? result.map((item) => item.toString()) : [];
 }
 
+/**
+ * URLからOGPの情報を取得する関数
+ * server only
+ * @param url
+ * @returns
+ */
 export async function getOGPContent(url: string): Promise<OGPContentResult> {
   try {
     const res = await fetch(url);
