@@ -16,7 +16,7 @@ export default function SEOHead({
   ogTitle,
   ogDescription,
 }: Props) {
-  const HOST_URL = process.env.NEXT_PUBLIC_HOST_URL || "https://www.calmato.jp/";
+  const HOST_URL = process.env.NEXT_PUBLIC_HOST_URL || "https://www.calmato.jp";
 
   return (
     <Head>
