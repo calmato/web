@@ -12,7 +12,7 @@ interface Props {
 export default function SEOHead({
   title = "Calmato",
   description = "CalmatoのWebサイトです",
-  ogImage = "img/calmato.png",
+  ogImage = "img/ogp/calmato.png",
   ogTitle,
   ogDescription,
 }: Props) {

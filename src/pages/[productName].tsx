@@ -111,7 +111,9 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   }
 
   const ogpImage =
-    productName && fs.existsSync(`./public/img/ogp/${productName}.png`) ? `img/${productName}.png` : "img/calmato.png";
+    productName && fs.existsSync(`./public/img/ogp/${productName}.png`)
+      ? `img/ogp/${productName}.png`
+      : "img/ogp/calmato.png";
 
   return {
     props: { contents: getFileContent.toString(), linkOgpContentList, images, title, ogpImage }, // will be passed to the page component as props
