@@ -43,5 +43,5 @@
 | Category       | Technology Stack                              |
 | -------------- | --------------------------------------------- |
 | Language       | TypeScript(Vue.js, Nuxt.js), Golang|
-| Middleware     | MySQL                                         |
+| Middleware     | MySQL, Firebase, SendGrid                     |
 | Infrastructure | Kubernetes (GCP: Google Cloud Engine), gRPC   |
