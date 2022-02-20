@@ -30,6 +30,11 @@ const productList: Product[] = [
     linkName: "gran_book",
     imgSrc: "/img/product/gran_book/1.png",
   },
+  {
+    name: "シフト管理システム「2HS WEB」",
+    linkName: "2hs_web",
+    imgSrc: "/img/product/2hs_web/1.png",
+  },
 ];
 
 const profileList: Profile[] = [
