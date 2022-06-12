@@ -77,7 +77,7 @@ const profileList: Profile[] = [
   {
     name: "Hazuki Nishiguchi",
     avator: "/img/profile/user5.jpg",
-    introduction: "Designer/Mareting"
+    introduction: "Designer/Marketing"
   },
   {
     name: "Yuto Hagiwara",
