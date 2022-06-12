@@ -16,6 +16,11 @@ const productList: Product[] = [
     imgSrc: "/img/product/kamijima_farm/1.png",
   },
   {
+    name: "スニーカーECサイト 「Qengine sports」",
+    linkName: "qengine_sports",
+    imgSrc: "/img/product/qengine_sports/1.png",
+  },
+  {
     name: "レシピ共有アプリ「Gran Cook」",
     linkName: "gran_cook",
     imgSrc: "/img/product/gran_cook/1.png",
@@ -41,7 +46,7 @@ const profileList: Profile[] = [
   {
     name: "Kodai Hamada",
     avator: "/img/profile/user0.jpg",
-    introduction: "Frontend engineer/Android engineer",
+    introduction: "PO/Frontend engineer/Android engineer",
   },
   {
     name: "Tadashi Nishikawa",
@@ -49,15 +54,15 @@ const profileList: Profile[] = [
     introduction: "Backend engineer/Infrastructure engineer",
   },
   {
-    name: "Daisuke Serikawa",
-    avator: "/img/profile/serikawa.jpg",
-    introduction: "Sales",
-  },
-  {
     name: "Yuki Yamada",
     avator: "/img/profile/user2.png",
     introduction:
       "Frontend engineer/Machine learning engineer/Backend engineer",
+  },
+  {
+    name: "Daisuke Serikawa",
+    avator: "/img/profile/serikawa.jpg",
+    introduction: "Sales",
   },
   {
     name: "Kaito Nakamura",
@@ -72,7 +77,12 @@ const profileList: Profile[] = [
   {
     name: "Hazuki Nishiguchi",
     avator: "/img/profile/user5.jpg",
-    introduction: "Designer"
+    introduction: "Designer/Mareting"
+  },
+  {
+    name: "Yuto Hagiwara",
+    avator: "/img/profile/hagiwara.jpg",
+    introduction: "Backend engineer"
   }
 ];
 
