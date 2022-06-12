@@ -15,6 +15,7 @@ import { ContactRequest } from "../types";
  */
 async function fetchRetry(input: RequestInfo, n: number, init?: RequestInit): Promise<Response> {
   try {
+    console.log(`request ${n}`);
     return await fetch(input, init);
   } catch (e) {
     if (n === 1) throw e;
@@ -50,7 +51,7 @@ export function ContactForm() {
         Accept: "application/json",
       };
 
-      await fetchRetry(apiUrl, 3, { method, headers, body: JSON.stringify(formData) })
+      await fetchRetry(apiUrl, 10, { method, headers, body: JSON.stringify(formData) })
         .then((res: Response) => {
           console.log({ status: res.status, body: res.body });
           addToast("success", "送信しました");
