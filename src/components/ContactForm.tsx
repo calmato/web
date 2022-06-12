@@ -18,6 +18,7 @@ async function fetchRetry(input: RequestInfo, n: number, init?: RequestInit): Pr
     console.log(`request ${n}`);
     return await fetch(input, init);
   } catch (e) {
+    await new Promise((x) => setTimeout(x, 1000));
     if (n === 1) throw e;
     return fetchRetry(input, n - 1, init);
   }
