@@ -6,6 +6,24 @@ import { Textarea, useToast, UseToastOptions } from "@chakra-ui/react";
 import React, { useCallback, useState } from "react";
 import { ContactRequest } from "../types";
 
+/**
+ * fetchにリトライ処理を追加した非同期関数
+ * @param input
+ * @param n リトライ処理の最大回数
+ * @param init
+ * @returns
+ */
+async function fetchRetry(input: RequestInfo, n: number, init?: RequestInit): Promise<Response> {
+  try {
+    console.log(`request ${n}`);
+    return await fetch(input, init);
+  } catch (e) {
+    await new Promise((x) => setTimeout(x, 1000));
+    if (n === 1) throw e;
+    return fetchRetry(input, n - 1, init);
+  }
+}
+
 export function ContactForm() {
   const toast = useToast();
   const [formData, setFormData] = useState<ContactRequest>({
@@ -34,7 +52,7 @@ export function ContactForm() {
         Accept: "application/json",
       };
 
-      await fetch(apiUrl, { method, headers, body: JSON.stringify(formData) })
+      await fetchRetry(apiUrl, 10, { method, headers, body: JSON.stringify(formData) })
         .then((res: Response) => {
           console.log({ status: res.status, body: res.body });
           addToast("success", "送信しました");

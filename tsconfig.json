@@ -2,7 +2,11 @@
   "compilerOptions": {
     "target": "es5",
     "module": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "jsx": "preserve",
     "allowJs": true,
     "skipLibCheck": true,
@@ -16,12 +20,27 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "paths": {
-      "~": ["./"],
-      "@": ["./"],
-      "~^": ["./../"],
-      "@@": ["./../"],
-    }
+      "~": [
+        "./"
+      ],
+      "@": [
+        "./"
+      ],
+      "~^": [
+        "./../"
+      ],
+      "@@": [
+        "./../"
+      ]
+    },
+    "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
