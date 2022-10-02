@@ -35,7 +35,7 @@ const Home: NextPage = () => {
         <Container maxW="container.lg">
           <Flex pt={8} px={8} justifyContent="space-between" alignItems="center">
             <Box>
-              <Text>Calmatoは、受託や自社の形でアプリケーション開発、ECサイト制作をメインで行う団体になります。</Text>
+              <Text>Calmatoは、受託や自社でアプリケーション開発、ECサイト制作をメインで行う団体になります。</Text>
               <Text>過去制作した成果物に関しては以下にまとめてあります。</Text>
               <Text>制作の依頼に関してはお問い合わせフォームからご依頼ください。</Text>
             </Box>
