@@ -36,8 +36,8 @@ const Home: NextPage = () => {
           <Flex pt={8} px={8} justifyContent="space-between" alignItems="center">
             <Box>
               <Text>Calmatoは、受託や自社でアプリケーション開発、ECサイト制作をメインで行う団体になります。</Text>
-              <Text>過去制作した成果物に関しては以下にまとめてあります。</Text>
-              <Text>制作の依頼に関してはお問い合わせフォームからご依頼ください。</Text>
+              <Text>過去制作した成果物に関してはProductを参照ください。</Text>
+              <Text>制作の依頼に関してはContactからご依頼ください。</Text>
             </Box>
           </Flex>
           <Flex pt={8} px={8} justifyContent="space-between" alignItems="center">
